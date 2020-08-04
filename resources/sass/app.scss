@@ -1,0 +1,29 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+body{
+    background-color: white;
+}
+
+nav.navbar{
+   padding-left: 15px;
+   padding-right: 15px;
+}
+main{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+main > h4{
+    color: #D07B00;
+    font-weight: bold;
+}
+.btn-submit{
+    color: white;
+    background-color: #FF9100;
+}

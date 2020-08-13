@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/pka', function () {
+    return view('pka_start');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

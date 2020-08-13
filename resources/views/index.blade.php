@@ -38,11 +38,19 @@
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
                     <ol type="1">
-                        <li>Evaluasi ini bertujuan untuk mengetahui efektifitas pencapai program dan pelaksanaan pelatihan, yang berguna untuk perbaikan dan penyempurnaan penyelenggaraan Diklat di masa yang akan datang;</li>
+                        <li>Evaluasi ini bertujuan untuk mengetahui efektifitas pencapai program dan pelaksanaan pelatihan, yang berguna
+untuk perbaikan dan penyempurnaan penyelenggaraan Pelatihan Kepemimpinan Administrator di masa yang akan datang;</li>
                         <li>Evaluasi ini menggunakan kuestioner yang bersifat tertutup dan terbuka;</li>
-                        <li>Berikan tanda chek list (V) atas penilaian Saudara pada kolom yang tersedia;</li>
+                        <li>Berikan tanda penilaian Saudara pada kolom yang tersedia;</li>
                         <li>Berikan saran / tanggapan Saudara terhadap pernyataan yang diberikan.</li>
                     </ol>
+                    <ol type="a">Tingkat penilaian : 
+                            <li>91 s.d. 100 sangat memuaskan </li>
+                            <li>81 s.d. 90 memuaskan </li>
+                            <li>71 s.d. 80 cukup memuaskan</li>
+                            <li>61 s.d. 70 kurang memuaskan</li>
+                        </ol>
+                    
                 </div>
                 </div>
             </div>
@@ -115,6 +123,9 @@
                             </tr>
                         </tbody>
                     </table>
+
+                    <p><b>Pendapat dan Saran berkenaan dengan program penyelenggaraan</b></p>
+                    <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
                 </div>
                 </div>
             </div>
@@ -553,57 +564,74 @@
                 <div id="questionCollapseTwo" class="collapse show" aria-labelledby="questionHeadingTwo" data-parent="#accordionQuestionTwo">
                 <div class="card-body">
                     <table class="table">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Pertanyaan</th>
-                                <th>Penilaian <br> (0 - 100)</th>
-                            </tr>                            
-                        </thead>
                         <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>Bagaimana tingkat penambahan pengetahuan / kemampuan setelah mengikuti Diklat</td>
+                                <td>1.</td>
                                 <td>
-                                    <input type="number" class="form-control" name="" id="" value="60" min="0" max="100">
+                                    <div class="form-group">
+                                        <label>Saran atau catatan penting terhadap pelayanan panitia pelaksana / penyelenggara</label>
+                                        <textarea name="" id="" cols="30" class="form-control" rows="2"></textarea>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>2</td>
-                                <td>Tingkat penyerapan materi yang dirasakan selama mengikuti program kegiatan pelatihan</td>
+                                <td>1.</td>
                                 <td>
-                                    <input type="number" class="form-control" name="" id="" value="60" min="0" max="100">
+                                    <div class="form-group">
+                                        <label>Saran atau catatan penting terhadap pelayanan panitia pelaksana / penyelenggara</label>
+                                        <textarea name="" id="" cols="30" class="form-control" rows="2"></textarea>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>3</td>
-                                <td>Ketersediaan / waktu penyelenggaraan Diklat dengan materi yang diberikan</td>
+                                <td>1.</td>
                                 <td>
-                                    <input type="number" class="form-control" name="" id="" value="60" min="0" max="100">
+                                    <div class="form-group">
+                                        <label>Saran atau catatan penting terhadap pelayanan panitia pelaksana / penyelenggara</label>
+                                        <textarea name="" id="" cols="30" class="form-control" rows="2"></textarea>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>4</td>
-                                <td>Pengaturan jadwal pembelajaran, makan/ snack dan rehat</td>
+                                <td>1.</td>
                                 <td>
-                                    <input type="number" class="form-control" name="" id="" value="60" min="0" max="100">
+                                    <div class="form-group">
+                                        <label>Saran atau catatan penting terhadap pelayanan panitia pelaksana / penyelenggara</label>
+                                        <textarea name="" id="" cols="30" class="form-control" rows="2"></textarea>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>5</td>
-                                <td>Pelayanan yang diberikan penitia selama penyelenggaraan Diklat</td>
+                                <td>1.</td>
                                 <td>
-                                    <input type="number" class="form-control" name="" id="" value="60" min="0" max="100">
+                                    <label>Fasilitator / narasumber yang menurut Saudara mampu menyampaikan materi pelajaran / arahan dan yang disertai dengan alasan.</label>
+                                    <div class="form-group">
+                                        <input type="text" name="" id="" class="form-control" placeholder="Nama Fasilitator">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="" id="" class="form-control" placeholder="Materi yang disampaikan">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="" id="" cols="30" rows="2" class="form-control" placeholder="Alasan/Komentar"></textarea>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>6</td>
-                                <td>Informasi dan panduan yang disampaikan/disediakan panitia dalam mendukung kelancaran pelaksanaan Diklat</td>
+                                <td>1.</td>
                                 <td>
-                                    <input type="number" class="form-control" name="" id="" value="60" min="0" max="100">
+                                    <label>Fasilitator / narasumber yang menurut Saudara tidak mampu menyampaikan materi pelajaran / arahan dan yang disertai dengan alasan.</label>
+                                    <div class="form-group">
+                                        <input type="text" name="" id="" class="form-control" placeholder="Nama Fasilitator">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="" id="" class="form-control" placeholder="Materi yang disampaikan">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="" id="" cols="30" rows="2" class="form-control" placeholder="Alasan/Komentar"></textarea>
+                                    </div>
                                 </td>
                             </tr>
-                        </tbody>
+                        </tbody>                                                
                     </table>
                 </div>
                 </div>

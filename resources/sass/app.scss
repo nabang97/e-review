@@ -27,3 +27,32 @@ main > h4{
     color: white;
     background-color: #FF9100;
 }
+
+main.start-page{
+    background-image: url('../../storage/app/public/img/background.jpg');
+    min-height: 100vh;
+    padding: 0px;
+}
+
+.layer-background{
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(71, 144, 255);
+    opacity: 0.5;
+    position: absolute;
+}
+
+.start-page .card{
+    margin: 0;
+    position: absolute;
+}
+
+.wp-30{
+    word-spacing: 10px;
+}
+.logo-text{
+    margin-left: 10px;
+}
+.logo-text span{
+    font-size: 1.2em;
+}

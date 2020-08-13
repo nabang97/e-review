@@ -10952,3 +10952,34 @@ main > h4 {
   background-color: #FF9100;
 }
 
+main.start-page {
+  background-image: url(/images/background.jpg?2361b50d839005386d6b0dbe051f4b21);
+  min-height: 100vh;
+  padding: 0px;
+}
+
+.layer-background {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #4790ff;
+  opacity: 0.5;
+  position: absolute;
+}
+
+.start-page .card {
+  margin: 0;
+  position: absolute;
+}
+
+.wp-30 {
+  word-spacing: 10px;
+}
+
+.logo-text {
+  margin-left: 10px;
+}
+
+.logo-text span {
+  font-size: 1.2em;
+}
+

@@ -23,7 +23,7 @@
         </nav>
     </header>
     <main class="container">
-    <h4>Kuisioner Penyelenggaraan Pelatihan Kepemimpinan Administrator</h4><br>
+    <h4>Kuisioner Penyelenggaraan Pelatihan Kepemimpinan Administrator/Pengawas</h4><br>
      <div class="guide-container">
         <div class="accordion" id="accordionExample">
             <div class="card">
@@ -39,7 +39,7 @@
                 <div class="card-body">
                     <ol type="1">
                         <li>Evaluasi ini bertujuan untuk mengetahui efektifitas pencapai program dan pelaksanaan pelatihan, yang berguna
-untuk perbaikan dan penyempurnaan penyelenggaraan Pelatihan Kepemimpinan Administrator di masa yang akan datang;</li>
+untuk perbaikan dan penyempurnaan penyelenggaraan Pelatihan Kepemimpinan Administrator/Pengawas di masa yang akan datang;</li>
                         <li>Evaluasi ini menggunakan kuestioner yang bersifat tertutup dan terbuka;</li>
                         <li>Berikan tanda penilaian Saudara pada kolom yang tersedia;</li>
                         <li>Berikan saran / tanggapan Saudara terhadap pernyataan yang diberikan.</li>

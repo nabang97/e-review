@@ -36,7 +36,7 @@
                         <input type="text" class="form-control" placeholder="NIP">
                         <input type="email" class="form-control" placeholder="Email" hidden>
                     </div>
-                    <center><button type="submit" class="btn btn-submit">Mulai</button><center>
+                    <center><a href="/pka" class="btn btn-submit">Mulai</a><center>
                 </form>
             </div>
         </div>

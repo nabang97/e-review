@@ -18,6 +18,7 @@ Route::get('/pka', function () {
 });
 
 Route::get('/', function () {
+    Artisan::call('storage:link');
     return view('pka_start');
 });
 
@@ -25,6 +26,3 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/foo', function () {
-    Artisan::call('storage:link');
-});

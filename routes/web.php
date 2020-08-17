@@ -24,3 +24,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/foo', function () {
+    Artisan::call('storage:link');
+});

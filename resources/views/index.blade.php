@@ -23,7 +23,7 @@
         </nav>
     </header>
     <main class="container">
-    <h4>Kuisioner Penyelenggaraan Pelatihan Diklat Teknis/Fungsional</h4><br>
+    <h4>Kuisioner Penyelenggaraan Pelatihan Kepemimpinan Administrator</h4><br>
      <div class="guide-container">
         <div class="accordion" id="accordionExample">
             <div class="card">

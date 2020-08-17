@@ -23,7 +23,7 @@
                      </div>
                 </div>
                 <hr>
-                <center><h6><b>Pelatihan Kepemimpinan Administrator<b></h6></center>
+                <center><h6><b>Pelatihan Kepemimpinan Administrator/Pengawas<b></h6></center>
                 <form>
                     <div class="form-group">
                         <select class="form-control">
@@ -31,6 +31,12 @@
                             <option value="umum">Umum</option>
                         </select>
                        
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option value="administrator">Administrator</option>
+                            <option value="pengawas">Pengawas</option>
+                        </select>                       
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="NIP">

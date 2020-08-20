@@ -37276,6 +37276,8 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./kuisioner */ "./resources/js/kuisioner.js");
+
 $('.accordion').hide();
 $('#accordionExample').show();
 $('#accordionQuestionOne').show();
@@ -37380,6 +37382,19 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/kuisioner.js":
+/*!***********************************!*\
+  !*** ./resources/js/kuisioner.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$("#submit-to").click(function (e) {
+  $("#form_kuisioner").submit();
+});
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -37398,8 +37413,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Projects\Git\e-review\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\Projects\Git\e-review\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\e-review\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\e-review\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

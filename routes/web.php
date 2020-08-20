@@ -13,14 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/pka', function () {
-    return view('index');
-});
+// Route::get('/pka', function () {
+//     return view('index');
+// });
 
-Route::get('/', function () {
-    Artisan::call('storage:link');
-    return view('pka_start');
-});
+Route::get('/','LandingController@index')->name('landing.index');
+Route::post('/pka','Kuisioner_pageController@index')->name('kuisioner_page.index');
+Route::post('/pka/store','Kuisioner_pageController@store')->name('kuisioner_page.store');
+
 
 Auth::routes();
 

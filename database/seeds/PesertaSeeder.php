@@ -12,7 +12,8 @@ class PesertaSeeder extends Seeder
     public function run()
     {
         DB::table('pesertas')->insert([
-            'nip' => '199704121201102201'
+            'nip_email' => '199704121201102201',
+            'jenis_kelamin' => '1'
         ]);
     }
 }

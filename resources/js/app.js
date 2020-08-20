@@ -1,4 +1,5 @@
 require('./bootstrap');
+require('./kuisioner');
 
 $('.accordion').hide();
 $('#accordionExample').show();
@@ -12,7 +13,7 @@ $('#next-to').click((e)=>{
     $(acc[positionQuestion]).hide();
     positionQuestion = positionQuestion + 1;
     $(acc[positionQuestion]).show();
-    
+
     if(positionQuestion > 0 ){
         $('#prev-to').show();
     }else{
@@ -30,10 +31,10 @@ $('#next-to').click((e)=>{
 });
 
 $('#prev-to').click((e)=>{
-    
+
     $(acc[positionQuestion]).hide();
     positionQuestion = positionQuestion - 1;
-    $(acc[positionQuestion]).show();    
+    $(acc[positionQuestion]).show();
     if(positionQuestion > 0 ){
         $('#prev-to').show();
     }else{
@@ -50,3 +51,5 @@ $('#prev-to').click((e)=>{
     console.log(positionQuestion);
 });
 console.log(positionQuestion);
+
+

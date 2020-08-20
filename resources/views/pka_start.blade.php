@@ -12,7 +12,7 @@
 <body>
     <main class="start-page d-flex justify-content-center align-items-center">
         <div class="layer-background"></div>
-        
+
         <div class="card">
             <div class="card-body">
                 <div class="logo-container d-flex justify-content-between">
@@ -23,30 +23,31 @@
                      </div>
                 </div>
                 <hr>
-                <center><h6><b>Pelatihan Kepemimpinan Administrator/Pengawas<b></h6></center>
-                <form>
+                <form action="{{ route('kuisioner_page.index') }}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <select class="form-control">
                             <option value="pns">PNS</option>
                             <option value="umum">Umum</option>
                         </select>
-                       
+
                     </div>
                     <div class="form-group">
-                        <select class="form-control">
-                            <option value="administrator">Administrator</option>
-                            <option value="pengawas">Pengawas</option>
-                        </select>                       
+                        <select class="form-control" name="diklat_id">
+                            @foreach($jenis_diklat as $diklat)
+                            <option value="{{ $diklat->id }}">{{ $diklat->nama_jenis_diklats }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="NIP">
                         <input type="email" class="form-control" placeholder="Email" hidden>
                     </div>
-                    <center><a href="/pka" class="btn btn-submit">Mulai</a><center>
+                    <center><button type="submit" class="btn btn-submit">Mulai</button><center>
                 </form>
             </div>
         </div>
-        
+
     </main>
 </body>
 </html>

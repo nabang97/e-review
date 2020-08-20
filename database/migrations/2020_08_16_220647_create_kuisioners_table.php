@@ -16,8 +16,10 @@ class CreateKuisionersTable extends Migration
         Schema::create('kuisioners', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('kuisioner_kategori_id');
-            $table->json('pertanyaan');
+            $table->text('pertanyaan');
             $table->timestamps();
+
+            $table->foreign('kuisioner_kategori_id')->references('id')->on('kuisioner_kategoris')->onDelete('cascade');
         });
     }
 

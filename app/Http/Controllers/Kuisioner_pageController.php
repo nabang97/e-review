@@ -7,6 +7,7 @@ use App\Jenis_diklat;
 use App\Detail_kuisioner;
 use App\Detail_diklat;
 use App\Nama_diklat;
+use App\Peserta;
 
 class Kuisioner_pageController extends Controller
 {
@@ -19,7 +20,9 @@ class Kuisioner_pageController extends Controller
             $nip = $request->nip;
             $status_peserta = $request->status_peserta;
             // return $nama_diklat;
-             return view('index',compact(['jenis_diklat','nama_diklat','detail_diklat', 'nip','status_peserta' ]));
+            $request->session()->put('nip_email', $request->nip);
+            $request->session()->put('jenis_kelamin', '1');
+            return view('index',compact(['jenis_diklat','nama_diklat','detail_diklat', 'nip','status_peserta' ]));
         } catch (\Exception $th) {
             return redirect()->route('landing.index');
         }
@@ -29,16 +32,21 @@ class Kuisioner_pageController extends Controller
     {
         $kuisionerArr = [];
 
+        Peserta::create([
+            'nip_email'   => $request->session()->get('nip_email'),
+            'jenis_kelamin' => $request->session()->get('jenis_kelamin'),
+        ]);
+
         foreach($request->kuisioner as $respon){
-            
+
             $kuisionerArr[] = [
-                "nip" =>"199704121201102201", 
+                "nip" => $respon["nip"],
                 "kuisioner_id"  => $respon["kuisioner_id"],
                 "diklat_id" => $respon["diklat_id"],
                 "tahun" => $respon["tahun"],
                 "isi"=>$respon["isi"]
             ];
-                
+
         }
 
         try {
@@ -47,6 +55,6 @@ class Kuisioner_pageController extends Controller
             return $kuisionerArr;
         } catch (\Exception $th) {
             dd($th);
-        }   
+        }
     }
 }

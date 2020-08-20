@@ -16,10 +16,10 @@ $("#submit-to").click((e)=>{
             kuisioner_id:parseInt(kuisioner_id),
             diklat_id: parseInt(nama_diklat),
             tahun:parseInt(tahun_diklat),
-            
+
         }
         responKuisioner.push(data);
-        
+
     });
 
     $('.respon-text').each((index) => {
@@ -33,18 +33,65 @@ $("#submit-to").click((e)=>{
           kuisioner_id:parseInt(kuisioner_id),
           diklat_id: parseInt(nama_diklat),
           tahun:parseInt(tahun_diklat),
-          
+
       }
       responKuisioner.push(data);
-      
+
     });
+
+    $('.respon-multi1').each((index) => {
+        const kuisioner_id = $($('.respon-multi1')[index]).attr('kuisioner-id')
+        const value = $($('.respon-multi1')[index]).attr('value');
+        const nama_diklat = $($('.respon-multi1')[index]).attr('nama-diklat');
+        const tahun_diklat = $($('.respon-multi1')[index]).attr('tahun-diklat');
+        const nama_fasilitator = $('#nama_fasilitator1').val();
+        const materi = $('#materi1').val();
+        const alasan = $('#alasan1').val();
+        console.log(nama_fasilitator);
+        console.log(materi);
+        console.log(alasan);
+        const data = {
+            nip : nip,
+            isi :`{"nama_fasilitator" : "${nama_fasilitator}","materi" : "${materi}","alasan" : "${alasan}"}`,
+            kuisioner_id:parseInt(kuisioner_id),
+            diklat_id: parseInt(nama_diklat),
+            tahun:parseInt(tahun_diklat),
+
+        }
+        responKuisioner.push(data);
+
+      });
+
+    $('.respon-multi2').each((index) => {
+        const kuisioner_id = $($('.respon-multi2')[index]).attr('kuisioner-id')
+        const value = $($('.respon-multi2')[index]).attr('value');
+        const nama_diklat = $($('.respon-multi2')[index]).attr('nama-diklat');
+        const tahun_diklat = $($('.respon-multi2')[index]).attr('tahun-diklat');
+        const nama_fasilitator = $('#nama_fasilitator2').val();
+        const materi = $('#materi2').val();
+        const alasan = $('#alasan2').val();
+        console.log(nama_fasilitator);
+        console.log(materi);
+        console.log(alasan);
+        const data = {
+            nip : nip,
+            isi :`{"nama_fasilitator" : "${nama_fasilitator}","materi" : "${materi}","alasan" : "${alasan}"}`,
+            kuisioner_id:parseInt(kuisioner_id),
+            diklat_id: parseInt(nama_diklat),
+            tahun:parseInt(tahun_diklat),
+
+        }
+        responKuisioner.push(data);
+
+      });
 
     console.log(JSON.stringify({kuisioner : responKuisioner}) );
     getData('/pka/store',{kuisioner : responKuisioner})
     .then(data => console.log(data)).catch(function(e) {
+    console.log('test');
       console.log(e);
   });;
-    
+
 });
 
 async function getData(url = '', data = {}) {

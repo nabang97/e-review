@@ -38252,6 +38252,46 @@ $("#submit-to").click(function (e) {
     };
     responKuisioner.push(data);
   });
+  $('.respon-multi1').each(function (index) {
+    var kuisioner_id = $($('.respon-multi1')[index]).attr('kuisioner-id');
+    var value = $($('.respon-multi1')[index]).attr('value');
+    var nama_diklat = $($('.respon-multi1')[index]).attr('nama-diklat');
+    var tahun_diklat = $($('.respon-multi1')[index]).attr('tahun-diklat');
+    var nama_fasilitator = $('#nama_fasilitator1').val();
+    var materi = $('#materi1').val();
+    var alasan = $('#alasan1').val();
+    console.log(nama_fasilitator);
+    console.log(materi);
+    console.log(alasan);
+    var data = {
+      nip: nip,
+      isi: "{\"nama_fasilitator\" : \"".concat(nama_fasilitator, "\",\"materi\" : \"").concat(materi, "\",\"alasan\" : \"").concat(alasan, "\"}"),
+      kuisioner_id: parseInt(kuisioner_id),
+      diklat_id: parseInt(nama_diklat),
+      tahun: parseInt(tahun_diklat)
+    };
+    responKuisioner.push(data);
+  });
+  $('.respon-multi2').each(function (index) {
+    var kuisioner_id = $($('.respon-multi2')[index]).attr('kuisioner-id');
+    var value = $($('.respon-multi2')[index]).attr('value');
+    var nama_diklat = $($('.respon-multi2')[index]).attr('nama-diklat');
+    var tahun_diklat = $($('.respon-multi2')[index]).attr('tahun-diklat');
+    var nama_fasilitator = $('#nama_fasilitator2').val();
+    var materi = $('#materi2').val();
+    var alasan = $('#alasan2').val();
+    console.log(nama_fasilitator);
+    console.log(materi);
+    console.log(alasan);
+    var data = {
+      nip: nip,
+      isi: "{\"nama_fasilitator\" : \"".concat(nama_fasilitator, "\",\"materi\" : \"").concat(materi, "\",\"alasan\" : \"").concat(alasan, "\"}"),
+      kuisioner_id: parseInt(kuisioner_id),
+      diklat_id: parseInt(nama_diklat),
+      tahun: parseInt(tahun_diklat)
+    };
+    responKuisioner.push(data);
+  });
   console.log(JSON.stringify({
     kuisioner: responKuisioner
   }));
@@ -38260,6 +38300,7 @@ $("#submit-to").click(function (e) {
   }).then(function (data) {
     return console.log(data);
   })["catch"](function (e) {
+    console.log('test');
     console.log(e);
   });
   ;
@@ -38337,8 +38378,8 @@ function _getData() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Projects\Git\e-review\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\Projects\Git\e-review\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\review\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\review\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

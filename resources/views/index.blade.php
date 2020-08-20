@@ -67,7 +67,7 @@
             </div>
         </div>
         <hr>
-        
+
             <div id="question-container">
                 @foreach($jenis_diklat->kuisioner_kategori as $kuisioner_kategori)
                 <div class="accordion" id="accordionQuestionOne">
@@ -87,7 +87,7 @@
                             <div class="card-body">
                             <form method="post" id="form_kuisioner">
                                 <table class="table">
-                                    @if($kuisioner_kategori->id != 9)                                
+                                    @if($kuisioner_kategori->id != 9)
                                     <thead id="head_table">
                                         <tr>
                                             <th>No</th>
@@ -121,9 +121,35 @@
                                     <!-- <input type="text" class="form-control" name="diklat_id"value="{{ $kuisioner->id }}" hidden> -->
                                     <textarea name="respon[]" id="" cols="30" rows="3" value="saran" class="form-control respon-text" nama-diklat="{{ $detail_diklat->nama_diklat_id }}" tahun-diklat="{{ $detail_diklat->tahun}}" kategori-kuisioner="{{ $kuisioner_kategori->id }}" kuisioner-id="{{ $kuisioner->id }}" required></textarea>
                                     <br>
+                                    @elseif($kuisioner->tipe == 'multi_text1')
+                                    <td>
+                                        <label>{{ $loop->iteration }} {{ $kuisioner->pertanyaan }}</label>
+                                        <div class="form-group">
+                                            <input type="text" name="" id="nama_fasilitator1" class="form-control respon-multi1" nama-diklat="{{ $detail_diklat->nama_diklat_id }}" tahun-diklat="{{ $detail_diklat->tahun}}" kategori-kuisioner="{{ $kuisioner_kategori->id }}" kuisioner-id="{{ $kuisioner->id }}" placeholder="Nama Fasilitator">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="" id="materi1" class="form-control" placeholder="Materi yang disampaikan">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea name="" id="alasan1" cols="30" rows="2" class="form-control" placeholder="Alasan/Komentar"></textarea>
+                                        </div>
+                                    </td>
+                                    @elseif($kuisioner->tipe == 'multi_text2')
+                                    <td>
+                                        <label>{{ $loop->iteration }} {{ $kuisioner->pertanyaan }}</label>
+                                        <div class="form-group">
+                                            <input type="text" name="" id="nama_fasilitator2" class="form-control respon-multi2" nama-diklat="{{ $detail_diklat->nama_diklat_id }}" tahun-diklat="{{ $detail_diklat->tahun}}" kategori-kuisioner="{{ $kuisioner_kategori->id }}" kuisioner-id="{{ $kuisioner->id }}" placeholder="Nama Fasilitator">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="" id="materi2" class="form-control" placeholder="Materi yang disampaikan">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea name="" id="alasan2" cols="30" rows="2" class="form-control" placeholder="Alasan/Komentar"></textarea>
+                                        </div>
+                                    </td>
                                     @endif
                                 @endforeach
-                            </form> 
+                            </form>
                             </div>
                         </div>
                     </div>

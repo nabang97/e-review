@@ -32,7 +32,7 @@ class Kuisioner_pageController extends Controller
         foreach($request->kuisioner as $respon){
             
             $kuisionerArr[] = [
-                "nip" =>"199704121201102201", 
+                "nip" =>$respon["nip"], 
                 "kuisioner_id"  => $respon["kuisioner_id"],
                 "diklat_id" => $respon["diklat_id"],
                 "tahun" => $respon["tahun"],

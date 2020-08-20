@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-Review | PKA</title>
      <!-- Scripts -->
@@ -26,7 +27,7 @@
                 <form action="{{ route('kuisioner_page.index') }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <select class="form-control">
+                        <select class="form-control" name="status_peserta">
                             <option value="pns">PNS</option>
                             <option value="umum">Umum</option>
                         </select>
@@ -40,7 +41,13 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="NIP">
+                        <input type="text" name="tahun_diklat" value="{{ date('Y') }}" hidden>
+                        <select class="form-control" name="nama_diklat">
+                            <option value="">Pilih Nama Diklat</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="NIP" name="nip">
                         <input type="email" class="form-control" placeholder="Email" hidden>
                     </div>
                     <center><button type="submit" class="btn btn-submit">Mulai</button><center>

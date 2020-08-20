@@ -50,6 +50,29 @@ $('#prev-to').click((e)=>{
     $("html, body").animate({ scrollTop: $("#question-container").offset().top }, "slow");
     console.log(positionQuestion);
 });
-console.log(positionQuestion);
+
+
+
+
+
+let getNamaDiklat = async (jenisDiklat) =>{
+    const response = await fetch(`/api/nama-diklat?jenisDiklat=${jenisDiklat}`);
+    return response.json();
+}
+
+
+$('select[name="diklat_id"]').change((e)=>{
+    const elementTarget= $('select[name="nama_diklat"]'); 
+    const jenisDiklat = $(e.target).val();    
+
+    getNamaDiklat(jenisDiklat).then(response => {
+        $(elementTarget).html('<option>Pilih Nama Diklat</option>');
+        response.forEach(data => {
+            $(elementTarget).append(`
+                <option value="${data.id}">${data.nama_diklats}</option>
+            `);
+        });
+    });    
+})
 
 

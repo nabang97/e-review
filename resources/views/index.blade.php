@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>e-Review | BPSDM SUMBAR</title>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -26,7 +27,9 @@
         </nav>
     </header>
     <main class="container">
-        <h4>Kuisioner {{ $jenis_diklat->nama_jenis_diklats }}</h4><br>
+    <h4>Kuisioner {{ $nama_diklat->nama_diklats }} {{ $detail_diklat->tahun }}</h4><br>
+        <input type="text" name="nip" value="{{ $nip }}" hidden>
+        <input type="text" name="status_peserta" value="{{ $status_peserta }}" hidden>
         <div class="guide-container">
             <div class="accordion" id="accordionExample">
                 <div class="card">
@@ -64,8 +67,7 @@
             </div>
         </div>
         <hr>
-        <form action="{{ route('kuisioner_page.store') }}" method="post" id="form_kuisioner">
-            @csrf
+        
             <div id="question-container">
                 @foreach($jenis_diklat->kuisioner_kategori as $kuisioner_kategori)
                 <div class="accordion" id="accordionQuestionOne">
@@ -83,7 +85,9 @@
                         <div id="questionCollapseOne" class="collapse show" aria-labelledby="questionHeadingOne"
                             data-parent="#accordionQuestionOne">
                             <div class="card-body">
+                            <form method="post" id="form_kuisioner">
                                 <table class="table">
+                                    @if($kuisioner_kategori->id != 9)                                
                                     <thead id="head_table">
                                         <tr>
                                             <th>No</th>
@@ -91,33 +95,35 @@
                                             <th>Penilaian <br> (0 - 100)</th>
                                         </tr>
                                     </thead>
-                                    @foreach($kuisioner_kategori->kuisioner as $kuisioner)
-                                    @if($kuisioner->tipe == 'angka')
-                                    <tbody>
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $kuisioner->pertanyaan }}</td>
-                                            <td>
-                                                <input type="text" class="form-control" name="kuisioner_id[]" id="kuisioner_id" value="{{ $kuisioner->id }}" style="display: none;">
-                                                <input type="text" class="form-control" name="diklat_id" id="diklat_id" value="{{ $kuisioner->id }}" style="display: none;">
-                                                <input type="number" class="form-control" name="respon[]" id="" value="60" min="0"
-                                                    max="100">
-                                            </td>
-                                        </tr>
-                                    </tbody>
                                     @endif
+                                    @foreach($kuisioner_kategori->kuisioner as $kuisioner)
+                                        @if($kuisioner->tipe == 'angka')
+                                        <tbody>
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $kuisioner->pertanyaan }}</td>
+                                                <td>
+                                                    <!-- <input type="text" class="form-control" name="kuisioner_id[]" value="{{ $kuisioner->id }}" hidden>
+                                                    <input type="text" class="form-control" name="diklat_id" value="{{ $kuisioner->id }}" hidden> -->
+                                                    <input type="number" class="form-control respon-angka" name="respon[]" value="60" min="0" nama-diklat="{{ $detail_diklat->nama_diklat_id }}" tahun-diklat="{{ $detail_diklat->tahun}}" kategori-kuisioner="{{ $kuisioner_kategori->id }}" kuisioner-id="{{ $kuisioner->id }}"
+                                                        max="100" required>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        @endif
                                     @endforeach
                                 </table>
 
                                 @foreach($kuisioner_kategori->kuisioner as $kuisioner)
-                                @if($kuisioner->tipe == 'text')
-                                <p><b>{{ $kuisioner->pertanyaan }}</b></p>
-                                <input type="text" class="form-control" name="kuisioner_id[]" id="kuisioner_id" value="{{ $kuisioner->id }}">
-                                <input type="text" class="form-control" name="diklat_id" id="diklat_id" value="{{ $kuisioner->id }}" style="display: none;">
-                                <textarea name="respon[]" id="" cols="30" rows="3" class="form-control"></textarea>
-                                <br>
-                                @endif
+                                    @if($kuisioner->tipe == 'text')
+                                    <p>{{ $loop->iteration }}. {{ $kuisioner->pertanyaan }}</p>
+                                    <!-- <input type="text" class="form-control" name="kuisioner_id[]" id="kuisioner_id" value="{{ $kuisioner->id }}" hidden> -->
+                                    <!-- <input type="text" class="form-control" name="diklat_id"value="{{ $kuisioner->id }}" hidden> -->
+                                    <textarea name="respon[]" id="" cols="30" rows="3" value="saran" class="form-control respon-text" nama-diklat="{{ $detail_diklat->nama_diklat_id }}" tahun-diklat="{{ $detail_diklat->tahun}}" kategori-kuisioner="{{ $kuisioner_kategori->id }}" kuisioner-id="{{ $kuisioner->id }}" required></textarea>
+                                    <br>
+                                    @endif
                                 @endforeach
+                            </form> 
                             </div>
                         </div>
                     </div>
@@ -132,7 +138,6 @@
                 <button class="btn btn-primary" id="next-to" type="button">NEXT</button>
                 <button class="btn btn-submit" id="submit-to" type="button">SUBMIT</button>
             </div>
-        </form>
 
         <br>
     </main>

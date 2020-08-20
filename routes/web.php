@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','LandingController@index')->name('landing.index');
 Route::post('/pka','Kuisioner_pageController@index')->name('kuisioner_page.index');
-Route::post('/pka/store','Kuisioner_pageController@store')->name('kuisioner_page.store');
-
+Route::post('/pka/store','Kuisioner_pageController@store');
+Route::get('/api/nama-diklat', 'NamaDiklatController@optionByIndex');
 
 Auth::routes();
 

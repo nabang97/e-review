@@ -20,6 +20,9 @@
 
   <!-- css -->
   <link rel="stylesheet" href="{{ asset('admin') }}/assets/multiple-form.css">
+  <!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+
+ 
 <!-- Start GA -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
 <script>
@@ -29,7 +32,12 @@
 
   gtag('config', 'UA-94034622-3');
 </script>
-<!-- /END GA --></head>
+<!-- /END GA -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet"/>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" /> -->
+
+
+</head>
 
 <body>
   <div id="app">
@@ -61,6 +69,8 @@
     </div>
   </div>
 
+  @yield('modal')
+
   <!-- General JS Scripts -->
   <script src="{{ asset('admin') }}/assets/modules/jquery.min.js"></script>
   <script src="{{ asset('admin') }}/assets/modules/popper.js"></script>
@@ -69,7 +79,11 @@
   <script src="{{ asset('admin') }}/assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
   <script src="{{ asset('admin') }}/assets/modules/moment.min.js"></script>
   <script src="{{ asset('admin') }}/assets/js/stisla.js"></script>
-
+  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+  <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script> -->
   <!-- JS Libraies -->
   <script src="{{ asset('admin') }}/assets/modules/izitoast/js/iziToast.min.js"></script>
 
@@ -78,6 +92,8 @@
   <!-- Template JS File -->
   <script src="{{ asset('admin') }}/assets/js/scripts.js"></script>
   <script src="{{ asset('admin') }}/assets/js/custom.js"></script>
+  <!-- admin js -->
+  <script src="{{ asset('js/app-admin.js')}}"></script>
   @yield('script')
 </body>
 </html>

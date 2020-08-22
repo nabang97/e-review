@@ -1,6 +1,7 @@
 require('./bootstrap');
 require('./kuisioner');
 
+
 $('.accordion').hide();
 $('#accordionExample').show();
 $('#accordionQuestionOne').show();
@@ -50,10 +51,6 @@ $('#prev-to').click((e)=>{
     $("html, body").animate({ scrollTop: $("#question-container").offset().top }, "slow");
     console.log(positionQuestion);
 });
-
-
-
-
 
 let getNamaDiklat = async (jenisDiklat) =>{
     const response = await fetch(`/api/nama-diklat?jenisDiklat=${jenisDiklat}`);

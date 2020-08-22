@@ -11,20 +11,20 @@
             <li><a class="nav-link" href="#"><i class="fas fa-home"></i>
                     <span>Dashboard</span></a></li>
             <li class="menu-header">Pengelolaan Data</li>
-            <li class="dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user"></i>
-                    <span>Data</span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="">Tambah Data</a></li>
-                    <li><a class="nav-link" href="">List Data</a></li>
-                </ul>
+            <li><a class="nav-link" href="/nama-diklat"><i class="fas fa-home"></i>
+                    <span>Nama Diklat</span></a></li>
             </li>
+            <li><a class="nav-link" href="/jadwal-diklat"><i class="fas fa-home"></i>
+                    <span>Jadwal Diklat</span></a></li>
+            </li>
+            <li class="menu-header">Questionnaire</li>
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file-alt"></i>
-                    <span>Data 2</span></a>
+                    <span>Responses</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="#">Tambah Data</a></li>
-                    <li><a class="nav-link" href="#">List Data</a></li>
+                    <li><a class="nav-link" href="/responses/pka">PKA</a></li>
+                    <li><a class="nav-link" href="/responses/prajabatan">Prajabatan</a></li>
+                    <li><a class="nav-link" href="#">Teknis/Fungsional</a></li>
                 </ul>
             </li>
             <li class="menu-header">Settings</li>
@@ -49,5 +49,6 @@
                     <i class="fas fa-power-off"></i> Logout
                 </a>
             </div>
+        </ul>   
     </aside>
 </div>

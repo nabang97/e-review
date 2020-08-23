@@ -1004,6 +1004,110 @@ $(document).ready(function () {
   getNamaDiklatByJenis(1, 'nama_diklat_pka');
   getNamaDiklatByJenis(2, 'nama_diklat_prajabatan');
 });
+$("#simpandiklat").click(function () {
+  $(this).attr('disabled', 'disabled');
+  $("#form_diklat").submit();
+});
+$("#simpanjadwal").click(function () {
+  $(this).attr('disabled', 'disabled');
+  $("#form_jadwal").submit();
+});
+$(document).on("click", "#editdiklat", function () {
+  var id_diklat = $(this).data("id_diklat");
+  var jenis_diklat = $(this).data("jenis_diklat");
+  var nama_diklat = $(this).data("nama_diklat");
+  console.log(id_diklat);
+  console.log(jenis_diklat);
+  console.log(nama_diklat);
+  $("#id_diklat").val(id_diklat);
+  $("#edit_nama_diklat").val(nama_diklat);
+  $("#updatediklat").click(function () {
+    $(this).attr('disabled', 'disabled');
+    $("#form_edit_diklat").submit();
+  });
+});
+$(document).on("click", "#editjadwal", function () {
+  var jenis_diklat = $(this).data("jenis_diklat");
+  var nama_diklat = $(this).data("nama_diklat");
+  var tahun = $(this).data("tahun");
+  var tempat_diklat = $(this).data("tempat_diklat");
+  var tanggal_diklat = $(this).data("tanggal");
+  var id_nama_diklat = $(this).data("nama_diklat_id");
+  console.log(tahun);
+  console.log(jenis_diklat);
+  console.log(nama_diklat);
+  console.log(tempat_diklat);
+  console.log(tanggal_diklat);
+  $("#nama_diklat_id").val(id_nama_diklat);
+  $("#nama_diklat").val(nama_diklat);
+  $("#jenis_diklat").val(jenis_diklat);
+  $("#tanggal_diklat").val(tanggal_diklat);
+  $("#tempat_diklat").val(tempat_diklat);
+  $("#updatejadwal").click(function () {
+    $(this).attr('disabled', 'disabled');
+    $("#form_update_jadwal").submit();
+  });
+});
+$("#deletediklat").click(function () {
+  var url = $(this).data('url');
+  iziToast.question({
+    timeout: 20000,
+    close: false,
+    overlay: true,
+    displayMode: 'once',
+    id: 'question',
+    zindex: 999,
+    title: 'Konfirmasi',
+    message: 'Apakah yakin ingin menghapus data ?',
+    position: 'center',
+    buttons: [['<button><b>YES</b></button>', function (instance, toast) {
+      instance.hide({
+        transitionOut: 'fadeOut'
+      }, toast, 'button');
+      $("#form_hapus_diklat").attr('action', url).submit();
+    }, true], ['<button>NO</button>', function (instance, toast) {
+      instance.hide({
+        transitionOut: 'fadeOut'
+      }, toast, 'button');
+    }]],
+    onClosing: function onClosing(instance, toast, closedBy) {
+      console.info('Closing | closedBy: ' + closedBy);
+    },
+    onClosed: function onClosed(instance, toast, closedBy) {
+      console.info('Closed | closedBy: ' + closedBy);
+    }
+  });
+});
+$(document).on("click", "#deletejadwal", function () {
+  var url = $(this).data('url');
+  iziToast.question({
+    timeout: 20000,
+    close: false,
+    overlay: true,
+    displayMode: 'once',
+    id: 'question',
+    zindex: 999,
+    title: 'Konfirmasi',
+    message: 'Apakah yakin ingin menghapus data ?',
+    position: 'center',
+    buttons: [['<button><b>YES</b></button>', function (instance, toast) {
+      instance.hide({
+        transitionOut: 'fadeOut'
+      }, toast, 'button');
+      $("#form_hapus_jadwal").attr('action', url).submit();
+    }, true], ['<button>NO</button>', function (instance, toast) {
+      instance.hide({
+        transitionOut: 'fadeOut'
+      }, toast, 'button');
+    }]],
+    onClosing: function onClosing(instance, toast, closedBy) {
+      console.info('Closing | closedBy: ' + closedBy);
+    },
+    onClosed: function onClosed(instance, toast, closedBy) {
+      console.info('Closed | closedBy: ' + closedBy);
+    }
+  });
+});
 
 var getJenisDiklat = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -1097,7 +1201,7 @@ $('select[name="jenis_diklat"]').change(function (e) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Projects\Git\e-review\resources\js\app-admin.js */"./resources/js/app-admin.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\review\resources\js\app-admin.js */"./resources/js/app-admin.js");
 
 
 /***/ })

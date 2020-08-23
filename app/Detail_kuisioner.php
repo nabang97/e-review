@@ -10,4 +10,9 @@ class Detail_kuisioner extends Model
     protected $casts = [
         'isi' => 'array'
     ];
+
+    public function kuisioner()
+    {
+        return $this->belongsTo(Kuisioner::class, 'kuisioner_id');
+    }
 }

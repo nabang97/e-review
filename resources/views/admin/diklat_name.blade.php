@@ -22,15 +22,25 @@
             </tr>
         </thead>
         <tbody>
+            @forelse($namadiklat as $nama_diklat)
             <tr>
-                <td>1</td>
-                <td>Row 1 Data 2</td>
-                <td>Row 1 Data 2</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $nama_diklat->nama_diklats }}</td>
+                <td>{{ $nama_diklat->jenis_diklat->nama_jenis_diklats }}</td>
+                <form action="" method="post" id="form_hapus_diklat">
+                    @csrf
+                    @method('DELETE')
+                </form>
                 <th>
-                    <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditNamaDiklat">Edit</button>
-                    <button class="btn btn-danger">Delete</button>
+                    <button type="button" id="editdiklat" data-id_diklat="{{ $nama_diklat->id }}" data-jenis_diklat="{{ $nama_diklat->jenis_diklat->nama_jenis_diklats }}" data-nama_diklat="{{ $nama_diklat->nama_diklats }}" class="btn btn-warning" data-toggle="modal" data-target="#modalEditNamaDiklat">Edit</button>
+                    <button type="button" class="btn btn-danger" id="deletediklat" data-url="{{ route('nama_diklat.delete',[$nama_diklat->id]) }}" data-diklat="{{ $nama_diklat->id }}">Delete</button>
                 </th>
             </tr>
+            @empty
+            <tr>
+                <td>Data tidak ditemukan</td>
+            </tr>
+            @endforelse
         </tbody>
     </table>
 </div>
@@ -52,7 +62,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="{{ route('nama_diklat.store') }}" method="POST" id="form_diklat">
+            @csrf
             <div class="form-group">
                 <label for="exampleFormControlInput1">Nama Diklat</label>
                 <input type="text" class="form-control" name="nama_diklat">
@@ -66,7 +77,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" id="simpandiklat" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -83,24 +94,28 @@
         </button>
       </div>
       <div class="modal-body">
-      <form>
+      <form action="{{ route('nama_diklat.update') }}" method="POST" id="form_edit_diklat">
+        @csrf
+        @method("PATCH")
+            <input type="hidden" name="id_diklat" id="id_diklat">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Nama Diklat</label>
-                <input type="text" class="form-control" name="nama_diklat">
+                <input type="text" class="form-control" name="nama_diklat" id="edit_nama_diklat">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Jenis Diklat</label>
-                <select class="form-control" name="jenis_diklat">
+                <select class="form-control" name="jenis_diklat" id="edit_jenis_diklat">
                 </select>
             </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" id="updatediklat" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
+
 
 @endsection

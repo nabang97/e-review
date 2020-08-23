@@ -7,14 +7,16 @@ Responses PKA
 @section('sub_judul','Responses PKA')
 
 @section('content')
+<form action="{{ route('pka.export') }}" method="get">
 <div class="d-flex justify-content-between">
     <div class="d-flex justify-content-start">
         <input type="text" class="form-control year-picker" name="tahun_diklat" value="{{date('Y')}}">
-        <select class="form-control" name="nama_diklat_pka"></select>
-        <button class="btn btn-primary">Show</button>
+        <select class="form-control ml-2" name="nama_diklat_pka"></select>
+        <button class="btn btn-primary ml-2">Show</button>
+        <button type="submit" class="btn btn-primary ml-2">Export</button>
     </div>
-    
 </div>
+</form>
 <br>
 <div class="table-responsive">
     <table id="tableJadwalDiklat" class="table">

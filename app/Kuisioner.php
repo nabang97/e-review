@@ -12,4 +12,9 @@ class Kuisioner extends Model
     {
         return $this->belongsTo(Kuisioner_kategori::class, 'kuisioner_kategori_id');
     }
+
+    public function detail_kuisioner()
+    {
+        return $this->hasMany(Detail_kuisioner::class);
+    }
 }

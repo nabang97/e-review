@@ -27,15 +27,6 @@
                     <li><a class="nav-link" href="#">Teknis/Fungsional</a></li>
                 </ul>
             </li>
-            <li class="menu-header">Settings</li>
-            <li class="dropdown">
-                <a href="" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cogs"></i>
-                    <span>Menu</span></a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="">Tambah Menu</a></li>
-                    <li><a class="nav-link" href="">Kelola Menu</a></li>
-                </ul>
-            </li>
             <li class="menu-header">Penilaian tambahan</li>
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-check-square"></i>
@@ -49,6 +40,6 @@
                     <i class="fas fa-power-off"></i> Logout
                 </a>
             </div>
-        </ul>   
+        </ul>
     </aside>
 </div>

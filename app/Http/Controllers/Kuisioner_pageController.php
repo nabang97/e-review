@@ -38,7 +38,7 @@ class Kuisioner_pageController extends Controller
     public function store(Request $request)
     {
         $kuisionerArr = [];
-        $peserta = Peserta::where('nip_email',$request->session()->get('nip_email'))->get();
+        $peserta = Peserta::where('nip_email',$request->session()->get('nip_email'))->first();
 
         if(!$peserta)
         {

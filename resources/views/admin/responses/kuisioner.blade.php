@@ -57,7 +57,7 @@ header("Content-Disposition: attachment; filename=Rekap kuisioner PKA ".date('Y-
     @foreach($responden as $peserta)
     <tr>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="19" align="right" valign="top" sdval="1.23456788901234E+018" sdnum="1033;"><font color="#000000">{{ $peserta->nip_email }}</font></td>
-        @foreach($data_kategori->kuisioner->detail_kuisioner as $jawaban)
+        @foreach($data_kategori->kuisioner as $jawaban)
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="top" sdval="60" sdnum="1033;"><font color="#000000">60</font></td>
         @endforeach
     </tr>

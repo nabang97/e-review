@@ -34,13 +34,13 @@ Responses PKA
                 <td>{{ $responden->nip_email }}</td>
                 <td>
                     @foreach($kategori as $pertanyaan)
-                    <li>{{ $pertanyaan->pertanyaan }}</li>
+                    <ul>{{ $pertanyaan->pertanyaan }}</ul>
                     @endforeach
                 </td>
                 <td>
                     @foreach($responden->detail_kuisioner as $kuisioner)
                     @foreach($kuisioner->isi as $isi)
-                    <li>{{ $isi }}</li>
+                    <ul>{{ $isi }}</ul>
                     @endforeach
                     @endforeach
                 </td>

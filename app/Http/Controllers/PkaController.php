@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Detail_kuisioner;
 use App\Kuisioner_kategori;
 use App\Peserta;
+use App\Kuisioner;
 
 class PkaController extends Controller
 {
@@ -23,8 +24,11 @@ class PkaController extends Controller
         // ->get();
 
         $peserta = Peserta::all();
+        $kategori = Kuisioner::join('kuisioner_kategoris','kuisioners.kuisioner_kategori_id','=','kuisioner_kategoris.id')
+        ->where('kuisioner_kategoris.jenis_diklat_id','1')
+        ->get();
 
-        return view('admin.responses.pka',compact('peserta'));
+        return view('admin.responses.pka',compact('peserta','kategori'));
     }
 
     public function export(Request $request)

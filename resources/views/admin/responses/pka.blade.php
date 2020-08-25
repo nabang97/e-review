@@ -22,17 +22,21 @@ Responses PKA
     <table id="tableJadwalDiklat" class="table">
         <thead>
             <tr>
-                <th>No</th>
                 <th>NIP</th>
-                <th>Isi</th>
+                <th>Pertanyaan</th>
+                <th>nilai</th>
 
             </tr>
         </thead>
         <tbody>
             @foreach($peserta as $responden)
             <tr>
-                <td>{{ $loop->iteration }}</td>
                 <td>{{ $responden->nip_email }}</td>
+                <td>
+                    @foreach($kategori as $pertanyaan)
+                    <li>{{ $pertanyaan->pertanyaan }}</li>
+                    @endforeach
+                </td>
                 <td>
                     @foreach($responden->detail_kuisioner as $kuisioner)
                     @foreach($kuisioner->isi as $isi)

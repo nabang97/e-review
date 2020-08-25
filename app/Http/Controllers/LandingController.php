@@ -8,7 +8,7 @@ use App\Peserta;
 
 class LandingController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $jenis_diklat = Jenis_diklat::all();
         return view('pka_start',compact('jenis_diklat'));

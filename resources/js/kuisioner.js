@@ -90,7 +90,7 @@ $("#submit-to").click((e)=>{
     .then(data => console.log(data)).catch(function(e) {
     console.log('test');
       console.log(e);
-  });;
+  });
 
 });
 

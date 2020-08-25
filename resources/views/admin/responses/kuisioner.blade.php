@@ -1,7 +1,7 @@
-@php
+{{-- @php
 header("Content-type: application/vnd-ms-excel");
 header("Content-Disposition: attachment; filename=Rekap kuisioner PKA ".date('Y-m').".xls");
-@endphp
+@endphp --}}
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <!-- saved from url=(0074)http://s3.pdfconvertonline.com/convert/p3r68-cdx67/n2ygl-5wnaj.html#table1 -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
@@ -58,26 +58,48 @@ header("Content-Disposition: attachment; filename=Rekap kuisioner PKA ".date('Y-
     <tr>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="19" align="right" valign="top" sdval="1.23456788901234E+018" sdnum="1033;"><font color="#000000">{{ $peserta->nip_email }}</font></td>
         @foreach($data_kategori->kuisioner as $jawaban)
-        <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="top" sdval="60" sdnum="1033;"><font color="#000000">60</font></td>
+        <?php
+        $detail = App\Detail_kuisioner::where('nip',$peserta->nip_email)->where('kuisioner_id',$jawaban->id)->where('tahun','2020')->first();
+        if($detail)
+        {
+        ?>
+            @foreach($detail->isi as $isi)
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="top" sdval="60" sdnum="1033;"><font color="#000000">{{ $isi }}</font></td>
+            @endforeach
+        <?php
+        }
+        else
+        {
+        ?>
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="top" sdval="60" sdnum="1033;"><font color="#000000">0</font></td>
+        <?php
+        }
+        ?>
         @endforeach
     </tr>
     @endforeach
 	<tr>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="19" align="left" valign="top" bgcolor="#D6DCE5"><b><font color="#000000">TOTAL</font></b></td>
         @foreach($data_kategori->kuisioner as $total)
+        @if($total->tipe == "angka")
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="top" bgcolor="#D6DCE5" sdval="720" sdnum="1033;"><b><font color="#000000">720</font></b></td>
+        @endif
         @endforeach
 	</tr>
 	<tr>
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="19" align="left" valign="top" bgcolor="#D6DCE5"><b><font color="#FF0000">RATA-RATA</font></b></td>
         @foreach($data_kategori->kuisioner as $rata_rata)
+        @if($total->tipe == "angka")
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="top" bgcolor="#D6DCE5" sdval="60" sdnum="1033;"><b><font color="#FF0000">60</font></b></td>
+        @endif
         @endforeach
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" height="19" align="left" valign="top" bgcolor="#D6DCE5"><b><font color="#000000">HASIL</font></b></td>
         @foreach($data_kategori->kuisioner as $hasil)
+        @if($total->tipe == "angka")
         <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="center" valign="top" bgcolor="#D6DCE5"><font color="#000000">Kurang Memuaskan</font></td>
+        @endif
         @endforeach
 	</tr>
     </tbody>

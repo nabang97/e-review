@@ -23,6 +23,8 @@ class AuthController extends Controller
         {
             return redirect()->route('dashboard.index')->with('success','Selamat datang');
         }
+
+        return redirect()->back()->with('errors','Username atau password salah');
     }
 
     public function logout()

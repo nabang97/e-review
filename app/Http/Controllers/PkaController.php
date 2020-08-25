@@ -12,24 +12,29 @@ class PkaController extends Controller
     public function index()
     {
         $detail_kuisioner = Detail_kuisioner::all();
-        $kuisioner = Detail_kuisioner::select('detail_kuisioners.*','nama_diklats.*','jenis_diklats.*')
-        ->join('nama_diklats','detail_kuisioners.diklat_id','=','nama_diklats.id')
-        ->join('jenis_diklats','nama_diklats.jenis_diklat_id','=','jenis_diklats.id')
-        ->where('detail_kuisioners.tahun',"2020")
-        ->where('detail_kuisioners.diklat_id',"4")
-        ->where('jenis_diklats.nama_jenis_diklats','Pelatihan Administrator')
-        ->get();
+        // $kuisioner = Detail_kuisioner::select('detail_kuisioners.*','nama_diklats.*','jenis_diklats.*','kuisioners.*')
+        // ->join('nama_diklats','detail_kuisioners.diklat_id','=','nama_diklats.id')
+        // ->join('jenis_diklats','nama_diklats.jenis_diklat_id','=','jenis_diklats.id')
+        // ->join('kuisioners','detail_kuisioners.kuisioner_id','=','kuisioners.id')
+        // ->where('detail_kuisioners.tahun','2020')
+        // ->where('detail_kuisioners.diklat_id','4')
+        // ->where('jenis_diklats.nama_jenis_diklats','Pelatihan Administrator')
+        // ->where('detail_kuisioners.nip','1611521002')
+        // ->get();
 
-        return view('admin.responses.pka');
+        $peserta = Peserta::all();
+
+        return view('admin.responses.pka',compact('peserta'));
     }
 
     public function export(Request $request)
     {
         $data1 = [];
 
-        $kuisioner = Detail_kuisioner::select('detail_kuisioners.*','nama_diklats.*','jenis_diklats.*')
+        $kuisioner = Detail_kuisioner::select('detail_kuisioners.*','nama_diklats.*','jenis_diklats.*','kuisioners.*')
         ->join('nama_diklats','detail_kuisioners.diklat_id','=','nama_diklats.id')
         ->join('jenis_diklats','nama_diklats.jenis_diklat_id','=','jenis_diklats.id')
+        ->join('kuisioners','detail_kuisioners.kuisioner_id','=','kuisioners.id')
         ->where('detail_kuisioners.tahun',$request->tahun_diklat)
         ->where('detail_kuisioners.diklat_id',$request->nama_diklat_pka)
         ->where('jenis_diklats.nama_jenis_diklats','Pelatihan Administrator')
@@ -38,6 +43,8 @@ class PkaController extends Controller
 
         $kategori = Kuisioner_kategori::where('jenis_diklat_id','1')->get();
         $responden = Peserta::all();
+
+
         $tahun_diklat = $request->tahun_diklat;
         $diklat_id = $request->nama_diklat_pka;
 

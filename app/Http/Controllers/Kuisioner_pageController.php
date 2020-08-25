@@ -28,6 +28,7 @@ class Kuisioner_pageController extends Controller
             // return $nama_diklat;
             $request->session()->put('nip_email', $request->nip);
             $request->session()->put('jenis_kelamin', '1');
+
         } catch (\Exception $th) {
             return redirect()->route('landing.index');
         }
@@ -40,14 +41,16 @@ class Kuisioner_pageController extends Controller
         $kuisionerArr = [];
         $peserta = Peserta::where('nip_email',$request->session()->get('nip_email'))->get();
 
-        if(!$peserta)
+        if($peserta->isEmpty())
         {
             Peserta::create([
                 'nip_email'   => $request->session()->get('nip_email'),
                 'jenis_kelamin' => $request->session()->get('jenis_kelamin'),
             ]);
+
         }
 
+        $request->session()->flush();
 
         foreach($request->kuisioner as $respon){
 
@@ -64,6 +67,7 @@ class Kuisioner_pageController extends Controller
         try {
             $store = Detail_kuisioner::insert($kuisionerArr);
             // dd($kuisionerArr);
+
             return $kuisionerArr;
         } catch (\Exception $th) {
             return $request->session()->flash('error', 'Gagal mengisi data, silahkan ulangi lagi');
